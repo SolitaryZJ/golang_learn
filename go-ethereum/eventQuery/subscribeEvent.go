@@ -3,13 +3,14 @@ package eventQuery
 import (
 	"context"
 	"fmt"
+	"log"
+	"strings"
+
 	"github.com/ethereum/go-ethereum"
 	"github.com/ethereum/go-ethereum/accounts/abi"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/core/types"
 	"github.com/ethereum/go-ethereum/ethclient"
-	"log"
-	"strings"
 )
 
 func SubEvent(client *ethclient.Client) {
@@ -17,6 +18,7 @@ func SubEvent(client *ethclient.Client) {
 	if err != nil {
 		log.Fatal(err)
 	}
+	fmt.Println("starting==============")
 	contractAddress := common.HexToAddress("0x570fA0b879Ec5ad39acF56f8284Cd261D7D4Da18")
 	query := ethereum.FilterQuery{
 		Addresses: []common.Address{contractAddress},
